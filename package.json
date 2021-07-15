@@ -1,0 +1,27 @@
+{
+  "name": "@hexlet/code",
+  "version": "1.0.0",
+  "description": "brain games",
+  "main": "/bin/brain-games.js",
+  "type": "module",
+  "bin": {
+    "brain-games": "bin/brain-games.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oiv84/frontend-project-lvl1.git"
+  },
+  "keywords": [
+    "js",
+    "javascript"
+  ],
+  "author": "Ivan Opara <oiv84@icloud.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oiv84/frontend-project-lvl1/issues"
+  },
+  "homepage": "https://github.com/oiv84/frontend-project-lvl1#readme"
+}
