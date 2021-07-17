@@ -14,14 +14,14 @@ const game = () => {
   console.log(gameRulesMessage);
 
   while (maxRounds > 0) {
-    const currentNumber = randomInt(0, 100);
-    const currentCorrectAnswer = currentNumber % 2 === 0 ? 'yes' : 'no';
+    const question = randomInt(0, 100);
+    const correctAnswer = question % 2 === 0 ? 'yes' : 'no';
 
-    console.log(`Question: ${currentNumber}`);
+    console.log(`Question: ${question}`);
     const answer = readlineSync.question('Your answer: ');
 
-    if (answer !== currentCorrectAnswer) {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${currentCorrectAnswer}'.`);
+    if (answer !== correctAnswer) {
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
       console.log(`Let's try again, ${name}!`);
       break;
     } else {
