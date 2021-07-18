@@ -1,13 +1,20 @@
 import randomInt from '../libs/getRandomIntegerFromRange.js';
 import gameEngine from '../index.js';
 
-const gameRules = 'Answer "yes" if the number is even, otherwise answer "no".';
+const gameRules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 const numbersRange = [0, 100];
 
 const getQuestionAndCorrectAnswer = () => {
-  const isEven = (num) => num % 2 === 0;
+  const isPrime = (num) => {
+    if (num < 2) return false;
+    for (let i = 2; i <= num / 2; i += 1) {
+      if (num % i === 0) return false;
+    }
+    return true;
+  };
+
   const question = randomInt(numbersRange);
-  const correctAnswer = isEven(question) ? 'yes' : 'no';
+  const correctAnswer = isPrime(question) ? 'yes' : 'no';
   return [question, correctAnswer];
 };
 
