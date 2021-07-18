@@ -1,14 +1,7 @@
-import getAnswer from '../bin/cli.js';
+import { greeting, getAnswer } from '../bin/cli.js';
 // Games settings
 const maxRounds = 3;
 
-// Greeting
-const greeting = () => {
-  console.log('Welcome to the Brain Games!');
-  const name = getAnswer('May I have your name?');
-  console.log(`Hello, ${name}`);
-  return name;
-};
 const name = greeting();
 
 // GameLogic
