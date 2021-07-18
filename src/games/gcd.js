@@ -1,5 +1,4 @@
 import randomInt from '../libs/getRandomIntegerFromRange.js';
-import calc from '../libs/calcTwoNumbers.js';
 import gameEngine from '../index.js';
 
 const gameRules = 'Find the greatest common divisor of given numbers.';
