@@ -1,25 +1,35 @@
-import randomInt from '../libs/getRandomIntegerFromRange.js';
-import calc from '../libs/calcTwoNumbers.js';
-import gameEngine from '../index.js';
+import randomInt from '../libs/utils.js';
+import playGame from '../index.js';
 
 const gameRules = 'What is the result of the expression?';
 const avaibleMathOperators = ['+', '-', '*'];
 const numbersRange = [0, 100];
 
-const getQuestionAndCorrectAnswer = () => {
+const simpleCalc = (num1, num2, operator) => {
+  switch (operator) {
+    case '+':
+      return num1 + num2;
+    case '-':
+      return num1 - num2;
+    case '*':
+      return num1 * num2;
+    default:
+      throw new Error(`Sorry, but ${operator} does not support`);
+  }
+};
+
+const genRound = () => {
   const num1 = randomInt(numbersRange);
   const num2 = randomInt(numbersRange);
 
-  const getRandomMathOperation = (operators) => operators[randomInt([0, operators.length - 1])];
-
-  const randomMathOperation = getRandomMathOperation(avaibleMathOperators);
+  const randomMathOperation = avaibleMathOperators[randomInt([0, avaibleMathOperators.length - 1])];
 
   const question = `${num1} ${randomMathOperation} ${num2}`;
-  const correctAnswer = calc(num1, num2, randomMathOperation).toString();
+  const correctAnswer = simpleCalc(num1, num2, randomMathOperation).toString();
 
   return [question, correctAnswer];
 };
 
-const startGame = () => gameEngine(gameRules, getQuestionAndCorrectAnswer);
+const startGame = () => playGame(gameRules, genRound);
 
 export default startGame;

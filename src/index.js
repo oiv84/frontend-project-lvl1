@@ -1,19 +1,19 @@
-import { greeting, getAnswer } from '../bin/cli.js';
-// Games settings
+import readlineSync from 'readline-sync';
+
 const maxRounds = 3;
 
-const name = greeting();
+console.log('Welcome to the Brain Games!');
+const name = readlineSync.question('May I have your name? ');
+console.log(`Hello, ${name}`);
 
-// GameLogic
-const gameEngine = (rules, getQuestionAndCorrectAnswer) => {
+const playGame = (rules, genRound) => {
   console.log(rules);
-  let currentRound = 1;
 
-  while (currentRound <= maxRounds) {
-    const [question, correctAnswer] = getQuestionAndCorrectAnswer();
+  for (let i = 0; i < maxRounds; i += 1) {
+    const [question, correctAnswer] = genRound();
 
     console.log(`Question: ${question}`);
-    const answer = getAnswer('Your answer:');
+    const answer = readlineSync.question('Your answer: ');
 
     if (answer !== correctAnswer) {
       console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
@@ -22,11 +22,9 @@ const gameEngine = (rules, getQuestionAndCorrectAnswer) => {
     }
 
     console.log('Correct!');
-
-    currentRound += 1;
   }
 
   console.log(`Congratulations, ${name}!`);
 };
 
-export default gameEngine;
+export default playGame;

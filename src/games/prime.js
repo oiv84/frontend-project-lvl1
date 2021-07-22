@@ -1,10 +1,10 @@
-import randomInt from '../libs/getRandomIntegerFromRange.js';
-import gameEngine from '../index.js';
+import randomInt from '../libs/utils.js';
+import playGame from '../index.js';
 
 const gameRules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 const numbersRange = [0, 100];
 
-const getQuestionAndCorrectAnswer = () => {
+const genRound = () => {
   const isPrime = (num) => {
     if (num < 2) return false;
     for (let i = 2; i <= num / 2; i += 1) {
@@ -18,6 +18,6 @@ const getQuestionAndCorrectAnswer = () => {
   return [question, correctAnswer];
 };
 
-const startGame = () => gameEngine(gameRules, getQuestionAndCorrectAnswer);
+const startGame = () => playGame(gameRules, genRound);
 
 export default startGame;
