@@ -2,7 +2,6 @@ import randomInt from '../utils.js';
 import playGame from '../index.js';
 
 const gameRules = 'Find the greatest common divisor of given numbers.';
-const numbersRange = [0, 100];
 
 const gcd = (a, b) => {
   if (b) {
@@ -12,8 +11,8 @@ const gcd = (a, b) => {
 };
 
 const genRound = () => {
-  const num1 = randomInt(numbersRange);
-  const num2 = randomInt(numbersRange);
+  const num1 = randomInt(0, 100);
+  const num2 = randomInt(0, 100);
 
   const question = `${num1} ${num2}`;
 
