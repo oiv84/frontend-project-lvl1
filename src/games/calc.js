@@ -1,11 +1,11 @@
-import randomInt from '../libs/utils.js';
+import randomInt from '../utils.js';
 import playGame from '../index.js';
 
 const gameRules = 'What is the result of the expression?';
 const avaibleMathOperators = ['+', '-', '*'];
 const numbersRange = [0, 100];
 
-const simpleCalc = (num1, num2, operator) => {
+const calc = (num1, num2, operator) => {
   switch (operator) {
     case '+':
       return num1 + num2;
@@ -25,7 +25,7 @@ const genRound = () => {
   const randomMathOperation = avaibleMathOperators[randomInt([0, avaibleMathOperators.length - 1])];
 
   const question = `${num1} ${randomMathOperation} ${num2}`;
-  const correctAnswer = simpleCalc(num1, num2, randomMathOperation).toString();
+  const correctAnswer = calc(num1, num2, randomMathOperation).toString();
 
   return [question, correctAnswer];
 };

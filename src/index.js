@@ -2,11 +2,10 @@ import readlineSync from 'readline-sync';
 
 const maxRounds = 3;
 
-console.log('Welcome to the Brain Games!');
-const name = readlineSync.question('May I have your name? ');
-console.log(`Hello, ${name}`);
-
 const playGame = (rules, genRound) => {
+  console.log('Welcome to the Brain Games!');
+  const name = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${name}`);
   console.log(rules);
 
   for (let i = 0; i < maxRounds; i += 1) {
