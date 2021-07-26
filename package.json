@@ -30,9 +30,6 @@
   },
   "homepage": "https://github.com/oiv84/frontend-project-lvl1#readme",
   "dependencies": {
-    "-": "0.0.1",
-    "g": "^2.0.1",
-    "npm": "^7.20.1",
     "readline-sync": "^1.4.10"
   },
   "devDependencies": {
