@@ -3,20 +3,28 @@ import playGame from '../index.js';
 
 const gameRules = 'What number is missing in the progression?';
 
-const genProgression = () => {
-  const progression = [randomInt(0, 100)];
-  const progressionLength = randomInt(5, 9);
-  const progressionDifferece = randomInt(1, 10);
+const genProgressionFirstNumber = (min = 0, max = 100) => randomInt(min, max);
 
-  for (let i = 1; i <= progressionLength; i += 1) {
-    progression.push(progression[i - 1] + progressionDifferece);
+const genProgressionDifference = (min = 1, max = 10) => randomInt(min, max);
+
+const genProgressionLength = (min = 5, max = 10) => randomInt(min, max);
+
+const genProgression = (firstNumber, difference, length) => {
+  const progression = [firstNumber];
+
+  for (let i = 1; i <= length; i += 1) {
+    progression.push(progression[i - 1] + difference);
   }
 
   return progression;
 };
 
 const genRound = () => {
-  const progression = genProgression();
+  const progression = genProgression(
+    genProgressionFirstNumber(),
+    genProgressionDifference(),
+    genProgressionLength(),
+  );
 
   const hiddenElementIndex = randomInt(0, progression.length - 1);
   const correctAnswer = progression[hiddenElementIndex].toString();
